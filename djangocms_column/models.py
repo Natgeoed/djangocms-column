@@ -17,12 +17,14 @@ else:
         ('100%', _('100%')),
     )
 
-GUTTER_WIDTH_CHOICES = (
+DEFAULT_GUTTER_WIDTH_CHOICES = (
     ('large', _('Large')),
-    ('normal', _('Normal')),
+    ('medium', _('Medium')),
     ('small', _('Small')),
-    ('none', _('No Gutter')),
+    ('collapse', _('No Gutter')),
 )
+GUTTER_WIDTH_CHOICES = getattr(settings, "GUTTER_WIDTH_CHOICES", DEFAULT_GUTTER_WIDTH_CHOICES)
+DEFAULT_GUTTER_WIDTH = getattr(settings, "GUTTER_WIDTH_DEFAULT", GUTTER_WIDTH_CHOICES[1][0])
 
 
 @python_2_unicode_compatible
@@ -34,7 +36,7 @@ class MultiColumns(CMSPlugin):
         _('gutter width'),
         max_length=50,
         choices=GUTTER_WIDTH_CHOICES,
-        default='normal')
+        default=DEFAULT_GUTTER_WIDTH)
 
     def __str__(self):
         return _(u"%s columns") % self.cmsplugin_set.all().count()

@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
+from djangocms_column.models import GUTTER_WIDTH_CHOICES, DEFAULT_GUTTER_WIDTH
 
 
 class Migration(migrations.Migration):
@@ -14,6 +15,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='multicolumns',
             name='gutter_width',
-            field=models.CharField(default=b'normal', max_length=50, verbose_name='gutter width', choices=[(b'large', 'Large'), (b'normal', 'Normal'), (b'small', 'Small'), (b'none', 'No Gutter')]),
+            field=models.CharField(default=DEFAULT_GUTTER_WIDTH, max_length=50, verbose_name='gutter width', choices=GUTTER_WIDTH_CHOICES),
         ),
     ]
