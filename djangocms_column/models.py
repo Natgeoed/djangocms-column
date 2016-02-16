@@ -17,12 +17,25 @@ else:
         ('100%', _('100%')),
     )
 
+GUTTER_WIDTH_CHOICES = (
+    ('large', _('Large')),
+    ('normal', _('Normal')),
+    ('small', _('Small')),
+    ('none', _('No Gutter')),
+)
+
 
 @python_2_unicode_compatible
 class MultiColumns(CMSPlugin):
     """
     A plugin that has sub Column classes
     """
+    gutter_width = models.CharField(
+        _('gutter width'),
+        max_length=50,
+        choices=GUTTER_WIDTH_CHOICES,
+        default='normal')
+
     def __str__(self):
         return _(u"%s columns") % self.cmsplugin_set.all().count()
 
@@ -36,9 +49,8 @@ class Column(CMSPlugin):
         _("width"),
         choices=WIDTH_CHOICES,
         default=WIDTH_CHOICES[0][0],
-        max_length=50
+        max_length=10
     )
 
     def __str__(self):
         return u"%s" % self.get_width_display()
-

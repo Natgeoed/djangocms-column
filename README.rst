@@ -3,6 +3,7 @@ djangocms-column
 
 A Multi Column Plugin for django CMS.
 
+This fork adds ability to specify the width of the gutter between the columns.
 
 Installation
 ------------
@@ -23,8 +24,8 @@ Usage
 There are 2 plugins: MultiColumn and Column
 The first is MultiColumn that should be added to your placeholder conf.
 MultiColumn only allows one plugin as a child: the Column plugin.
-The Column plugin has a parameter width. With this parameter you can control the width 
-of the column. 
+The Column plugin has a parameter width. With this parameter you can control the width
+of the column.
 
 You can add a new setting to your settings.py called `COLUMN_WIDTH_CHOICES`
 
