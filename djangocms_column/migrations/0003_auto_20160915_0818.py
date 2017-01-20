@@ -7,7 +7,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('djangocms_column', '0002_add_gutter_width.py'),
+        ('djangocms_column', '0002_add_gutter_width'),
     ]
 
     operations = [
