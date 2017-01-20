@@ -37,9 +37,15 @@ class MultiColumns(CMSPlugin):
         max_length=50,
         choices=GUTTER_WIDTH_CHOICES,
         default=DEFAULT_GUTTER_WIDTH)
+    cmsplugin_ptr = models.OneToOneField(
+        CMSPlugin,
+        related_name='%(app_label)s_%(class)s',
+        parent_link=True,
+    )
 
     def __str__(self):
-        return _(u"%s columns") % self.cmsplugin_set.all().count()
+        plugins = self.child_plugin_instances or []
+        return _(u"%s columns") % len(plugins)
 
 
 @python_2_unicode_compatible
@@ -51,7 +57,12 @@ class Column(CMSPlugin):
         _("width"),
         choices=WIDTH_CHOICES,
         default=WIDTH_CHOICES[0][0],
-        max_length=10
+        max_length=50
+    )
+    cmsplugin_ptr = models.OneToOneField(
+        CMSPlugin,
+        related_name='%(app_label)s_%(class)s',
+        parent_link=True,
     )
 
     def __str__(self):
