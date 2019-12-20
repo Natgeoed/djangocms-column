@@ -45,7 +45,7 @@ class MultiColumns(CMSPlugin):
 
     def __str__(self):
         plugins = self.child_plugin_instances or []
-        return _(u"%s columns") % len(plugins)
+        return _("%s columns") % len(plugins)
 
 
 @python_2_unicode_compatible
@@ -66,4 +66,4 @@ class Column(CMSPlugin):
     )
 
     def __str__(self):
-        return u"%s" % self.get_width_display()
+        return "%s" % self.get_width_display()
