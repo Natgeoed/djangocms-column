@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
+
 
 from djangocms_column.models import WIDTH_CHOICES
 from django.db import models, migrations
